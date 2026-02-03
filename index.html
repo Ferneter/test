@@ -58,191 +58,191 @@
             </svg>
         );
 
-       const ApexLegendsQuiz = () => {
-  const legends = [
-    {
-      name: "Bloodhound",
-      tactical: "Krátce odhalí nepřátele, pasti a stopy v okolí",
-      passive: "Vidí stopy, které po sobě zanechali nepřátelé",
-      ultimate: "Zvýší rychlost pohybu a zvýrazní nepřátele",
-      class: "Průzkumník"
-    },
-    {
-      name: "Gibraltar",
-      tactical: "Vytvoří ochrannou kupoli blokující střely",
-      passive: "Při míření se aktivuje štít pohlcující poškození",
-      ultimate: "Přivolá obranné dělostřelecké bombardování",
-      class: "Podpora"
-    },
-    {
-      name: "Lifeline",
-      tactical: "Nasadí dron, který léčí spojence v okolí",
-      passive: "Oživuje spojence pomocí dronu s ochranným štítem",
-      ultimate: "Přivolá care package s kvalitním vybavením",
-      class: "Podpora"
-    },
-    {
-      name: "Pathfinder",
-      tactical: "Vystřelí hák a přitáhne se na vzdálené místo",
-      passive: "Skenuje průzkumné majáky a odhalí další kruh",
-      ultimate: "Vytvoří zipline pro týmový přesun",
-      class: "Plížitel"
-    },
-    {
-      name: "Wraith",
-      tactical: "Vstoupí do voidu, kde je krátce neviditelná a nezranitelná",
-      passive: "Hlasy ji varují před blížícím se nebezpečím",
-      ultimate: "Vytvoří portál mezi dvěma místy",
-      class: "Plížitel"
-    },
-    {
-      name: "Bangalore",
-      tactical: "Vystřelí kouřové granáty zakrývající výhled",
-      passive: "Po zásahu nebo palbě v okolí se krátce zrychlí",
-      ultimate: "Přivolá dělostřelecký útok s opožděnými výbuchy",
-      class: "Útočník"
-    },
-    {
-      name: "Caustic",
-      tactical: "Umístí pasti, které po aktivaci vypustí toxický plyn",
-      passive: "Vidí nepřátele skrz svůj plyn",
-      ultimate: "Hodí granát, který zaplní oblast plynem",
-      class: "Ovladač"
-    },
-    {
-      name: "Mirage",
-      tactical: "Vysílá holografickou návnadu",
-      passive: "Stává se neviditelným při oživování nebo knockdownu",
-      ultimate: "Vytvoří skupinu hologramů kolem sebe",
-      class: "Podpora"
-    },
-    {
-      name: "Octane",
-      tactical: "Obětuje zdraví pro výrazné zrychlení",
-      passive: "Postupně regeneruje zdraví",
-      ultimate: "Umístí odrazovou plošinu",
-      class: "Plížitel"
-    },
-    {
-      name: "Wattson",
-      tactical: "Umístí elektrické uzly vytvářející obranné ploty",
-      passive: "Akceleranty rychle dobíjejí ultimát",
-      ultimate: "Postaví pylón ničíci granáty a dobíjející štíty",
-      class: "Ovladač"
-    },
-    {
-      name: "Crypto",
-      tactical: "Ovládá průzkumný dron",
-      passive: "Nepřátelé detekovaní dronem jsou označeni pro tým",
-      ultimate: "Dron spustí EMP poškozující štíty a zařízení",
-      class: "Průzkumník"
-    },
-    {
-      name: "Revenant",
-      tactical: "Hodí zařízení, které umlčí schopnosti a poškozuje",
-      passive: "Rychle leze po stěnách a pohybuje se při skrčení",
-      ultimate: "Vytvoří totem návratu po knockdownu",
-      class: "Plížitel"
-    },
-    {
-      name: "Loba",
-      tactical: "Teleportuje se pomocí náramku",
-      passive: "Vidí epické a legendární předměty skrz stěny",
-      ultimate: "Umístí Black Market pro sběr lootu v okolí",
-      class: "Podpora"
-    },
-    {
-      name: "Rampart",
-      tactical: "Postaví kryt zesilující střelbu a blokující útoky",
-      passive: "Větší zásobníky a rychlejší reload LMG",
-      ultimate: "Nasadí nebo nese minigun Sheila",
-      class: "Ovladač"
-    },
-    {
-      name: "Horizon",
-      tactical: "Vytvoří gravitační výtah",
-      passive: "Má lepší kontrolu pohybu ve vzduchu",
-      ultimate: "Vytvoří malou černou díru přitahující objekty",
-      class: "Plížitel"
-    },
-    {
-      name: "Fuse",
-      tactical: "Vystřelí cluster granát s opakovanými explozemi",
-      passive: "Nese více granátů a hází je dál a rychleji",
-      ultimate: "Vytvoří ohnivý kruh obklopující oblast",
-      class: "Útočník"
-    },
-    {
-      name: "Valkyrie",
-      tactical: "Vystřelí roj raket",
-      passive: "Používá jetpack pro vertikální pohyb",
-      ultimate: "Vezme tým do vzduchu k přesunu",
-      class: "Plížitel"
-    },
-    {
-      name: "Seer",
-      tactical: "Mikrodrony odhalí a přeruší nepřátele",
-      passive: "Slyší a vidí tlukot srdce nepřátel při míření",
-      ultimate: "Vytvoří kouli odhalující pohyb nepřátel",
-      class: "Průzkumník"
-    },
-    {
-      name: "Ash",
-      tactical: "Vržená past přitáhne a zraní nepřítele",
-      passive: "Vidí deathboxy a místa posledních zabití",
-      ultimate: "Vytvoří jednosměrný portál",
-      class: "Útočník"
-    },
-    {
-      name: "Mad Maggie",
-      tactical: "Vystřelí vrták propalující překážky",
-      passive: "Zvýrazňuje zasažené nepřátele, rychlejší pohyb se shotguny",
-      ultimate: "Vypustí wrecking ball poskytující rychlost",
-      class: "Útočník"
-    },
-    {
-      name: "Newcastle",
-      tactical: "Hodí pohyblivý ochranný štít",
-      passive: "Táhne spojence při oživování a chrání je",
-      ultimate: "Skočí na pozici a vytvoří opevněnou zeď",
-      class: "Podpora"
-    },
-    {
-      name: "Vantage",
-      tactical: "Přesune se k netopýrovi Echovi",
-      passive: "Při zamíření vidí informace o vzdálených nepřátelích",
-      ultimate: "Použije sniperku označující cíle pro tým",
-      class: "Průzkumník"
-    },
-    {
-      name: "Catalyst",
-      tactical: "Rozmístí ferrofluidové bodce zpomalující nepřátele",
-      passive: "Zpevňuje dveře a může vytvářet nové",
-      ultimate: "Vytvoří temnou stěnu blokující výhled",
-      class: "Ovladač"
-    },
-    {
-      name: "Ballistic",
-      tactical: "Vystřelí chytrý projektil přehřívající zbraň nepřítele",
-      passive: "Nese třetí zbraň ve speciálním slotu",
-      ultimate: "Posílí tým rychlostí, reloadem a nekonečnou municí",
-      class: "Útočník"
-    },
-    {
-      name: "Conduit",
-      tactical: "Přenese dočasné štíty spojenci",
-      passive: "Běží rychleji k spojencům s nízkými štíty",
-      ultimate: "Rozmístí energetické generátory štítů",
-      class: "Podpora"
-    },
-    {
-      name: "Alter",
-      tactical: "Vytvoří portál skrz povrchy",
-      passive: "Může brát předměty z deathboxů skrz zdi",
-      ultimate: "Umístí Void Nexus pro týmový návrat",
-      class: "Plížitel"
-    }
-  ];
+        const ApexLegendsQuiz = () => {
+            const legends = [
+        {
+        name: "Bloodhound",
+        tactical: "Krátce odhalí nepřátele, pasti a stopy v okolí",
+        passive: "Vidí stopy, které po sobě zanechali nepřátelé",
+        ultimate: "Zvýší rychlost pohybu a zvýrazní nepřátele",
+        class: "Průzkumník"
+        },
+        {
+        name: "Gibraltar",
+        tactical: "Vytvoří ochrannou kupoli blokující střely",
+        passive: "Při míření se aktivuje štít pohlcující poškození",
+        ultimate: "Přivolá obranné dělostřelecké bombardování",
+        class: "Podpora"
+        },
+        {
+        name: "Lifeline",
+        tactical: "Nasadí dron, který léčí spojence v okolí",
+        passive: "Oživuje spojence pomocí dronu s ochranným štítem",
+        ultimate: "Přivolá care package s kvalitním vybavením",
+        class: "Podpora"
+        },
+        {
+        name: "Pathfinder",
+        tactical: "Vystřelí hák a přitáhne se na vzdálené místo",
+        passive: "Skenuje průzkumné majáky a odhalí další kruh",
+        ultimate: "Vytvoří zipline pro týmový přesun",
+        class: "Plížitel"
+        },
+        {
+        name: "Wraith",
+        tactical: "Vstoupí do voidu, kde je krátce neviditelná a nezranitelná",
+        passive: "Hlasy ji varují před blížícím se nebezpečím",
+        ultimate: "Vytvoří portál mezi dvěma místy",
+        class: "Plížitel"
+        },
+        {
+        name: "Bangalore",
+        tactical: "Vystřelí kouřové granáty zakrývající výhled",
+        passive: "Po zásahu nebo palbě v okolí se krátce zrychlí",
+        ultimate: "Přivolá dělostřelecký útok s opožděnými výbuchy",
+        class: "Útočník"
+        },
+        {
+        name: "Caustic",
+        tactical: "Umístí pasti, které po aktivaci vypustí toxický plyn",
+        passive: "Vidí nepřátele skrz svůj plyn",
+        ultimate: "Hodí granát, který zaplní oblast plynem",
+        class: "Ovladač"
+        },
+        {
+        name: "Mirage",
+        tactical: "Vysílá holografickou návnadu",
+        passive: "Stává se neviditelným při oživování nebo knockdownu",
+        ultimate: "Vytvoří skupinu hologramů kolem sebe",
+        class: "Podpora"
+        },
+        {
+        name: "Octane",
+        tactical: "Obětuje zdraví pro výrazné zrychlení",
+        passive: "Postupně regeneruje zdraví",
+        ultimate: "Umístí odrazovou plošinu",
+        class: "Plížitel"
+        },
+        {
+        name: "Wattson",
+        tactical: "Umístí elektrické uzly vytvářející obranné ploty",
+        passive: "Akceleranty rychle dobíjejí ultimát",
+        ultimate: "Postaví pylón ničíci granáty a dobíjející štíty",
+        class: "Ovladač"
+        },
+        {
+        name: "Crypto",
+        tactical: "Ovládá průzkumný dron",
+        passive: "Nepřátelé detekovaní dronem jsou označeni pro tým",
+        ultimate: "Dron spustí EMP poškozující štíty a zařízení",
+        class: "Průzkumník"
+        },
+        {
+        name: "Revenant",
+        tactical: "Hodí zařízení, které umlčí schopnosti a poškozuje",
+        passive: "Rychle leze po stěnách a pohybuje se při skrčení",
+        ultimate: "Vytvoří totem návratu po knockdownu",
+        class: "Plížitel"
+        },
+        {
+        name: "Loba",
+        tactical: "Teleportuje se pomocí náramku",
+        passive: "Vidí epické a legendární předměty skrz stěny",
+        ultimate: "Umístí Black Market pro sběr lootu v okolí",
+        class: "Podpora"
+        },
+        {
+        name: "Rampart",
+        tactical: "Postaví kryt zesilující střelbu a blokující útoky",
+        passive: "Větší zásobníky a rychlejší reload LMG",
+        ultimate: "Nasadí nebo nese minigun Sheila",
+        class: "Ovladač"
+        },
+        {
+        name: "Horizon",
+        tactical: "Vytvoří gravitační výtah",
+        passive: "Má lepší kontrolu pohybu ve vzduchu",
+        ultimate: "Vytvoří malou černou díru přitahující objekty",
+        class: "Plížitel"
+        },
+        {
+        name: "Fuse",
+        tactical: "Vystřelí cluster granát s opakovanými explozemi",
+        passive: "Nese více granátů a hází je dál a rychleji",
+        ultimate: "Vytvoří ohnivý kruh obklopující oblast",
+        class: "Útočník"
+        },
+        {
+        name: "Valkyrie",
+        tactical: "Vystřelí roj raket",
+        passive: "Používá jetpack pro vertikální pohyb",
+        ultimate: "Vezme tým do vzduchu k přesunu",
+        class: "Plížitel"
+        },
+        {
+        name: "Seer",
+        tactical: "Mikrodrony odhalí a přeruší nepřátele",
+        passive: "Slyší a vidí tlukot srdce nepřátel při míření",
+        ultimate: "Vytvoří kouli odhalující pohyb nepřátel",
+        class: "Průzkumník"
+        },
+        {
+        name: "Ash",
+        tactical: "Vržená past přitáhne a zraní nepřítele",
+        passive: "Vidí deathboxy a místa posledních zabití",
+        ultimate: "Vytvoří jednosměrný portál",
+        class: "Útočník"
+        },
+        {
+        name: "Mad Maggie",
+        tactical: "Vystřelí vrták propalující překážky",
+        passive: "Zvýrazňuje zasažené nepřátele, rychlejší pohyb se shotguny",
+        ultimate: "Vypustí wrecking ball poskytující rychlost",
+        class: "Útočník"
+        },
+        {
+        name: "Newcastle",
+        tactical: "Hodí pohyblivý ochranný štít",
+        passive: "Táhne spojence při oživování a chrání je",
+        ultimate: "Skočí na pozici a vytvoří opevněnou zeď",
+        class: "Podpora"
+        },
+        {
+        name: "Vantage",
+        tactical: "Přesune se k netopýrovi Echovi",
+        passive: "Při zamíření vidí informace o vzdálených nepřátelích",
+        ultimate: "Použije sniperku označující cíle pro tým",
+        class: "Průzkumník"
+        },
+        {
+        name: "Catalyst",
+        tactical: "Rozmístí ferrofluidové bodce zpomalující nepřátele",
+        passive: "Zpevňuje dveře a může vytvářet nové",
+        ultimate: "Vytvoří temnou stěnu blokující výhled",
+        class: "Ovladač"
+        },
+        {
+        name: "Ballistic",
+        tactical: "Vystřelí chytrý projektil přehřívající zbraň nepřítele",
+        passive: "Nese třetí zbraň ve speciálním slotu",
+        ultimate: "Posílí tým rychlostí, reloadem a nekonečnou municí",
+        class: "Útočník"
+        },
+        {
+        name: "Conduit",
+        tactical: "Přenese dočasné štíty spojenci",
+        passive: "Běží rychleji k spojencům s nízkými štíty",
+        ultimate: "Rozmístí energetické generátory štítů",
+        class: "Podpora"
+        },
+        {
+        name: "Alter",
+        tactical: "Vytvoří portál skrz povrchy",
+        passive: "Může brát předměty z deathboxů skrz zdi",
+        ultimate: "Umístí Void Nexus pro týmový návrat",
+        class: "Plížitel"
+        }
+                ];
 
             const [gameMode, setGameMode] = useState('menu');
             const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -278,7 +278,7 @@
                     const abilityType = abilityTypes[Math.floor(Math.random() * abilityTypes.length)];
                     const abilityName = legend[abilityType];
                     
-                    question = `Which legend has this ${abilityType === 'tactical' ? 'tactical' : abilityType === 'passive' ? 'passive' : 'ultimate'} ability: "${abilityName}"?`;
+                    question = `Která postava má tuto ${abilityType === 'tactical' ? 'taktickou' : abilityType === 'passive' ? 'pasivní' : 'ultimátní'} schopnost: "${abilityName}"?`;
                     correctAnswer = legend.name;
                     
                     const otherLegends = legends.filter(l => l.name !== legend.name);
@@ -291,7 +291,7 @@
                     }
                     answers = [correctAnswer, ...wrongAnswers].sort(() => Math.random() - 0.5);
                 } else {
-                    question = `What is ${legend.name}'s ${questionType === 'tactical' ? 'tactical' : questionType === 'passive' ? 'passive' : 'ultimate'} ability?`;
+                    question = `Jaká je ${questionType === 'tactical' ? 'taktická' : questionType === 'passive' ? 'pasivní' : 'ultimátní'} schopnost postavy ${legend.name}?`;
                     correctAnswer = legend[questionType];
                     
                     const sameTypeAbilities = legends
@@ -318,10 +318,10 @@
                 setSelectedAnswer(answer);
                 if (answer === currentQuestion.correctAnswer) {
                     setCorrectAnswers(correctAnswers + 1);
-                    setFeedback('✓ Correct!');
+                    setFeedback('✓ Správně!');
                 } else {
                     setIncorrectAnswers(incorrectAnswers + 1);
-                    setFeedback(`✗ Wrong! Correct answer: ${currentQuestion.correctAnswer}`);
+                    setFeedback(`✗ Špatně! Správná odpověď: ${currentQuestion.correctAnswer}`);
                 }
                 setQuestionsAnswered(questionsAnswered + 1);
 
@@ -372,7 +372,7 @@
                         <div className="max-w-2xl w-full bg-slate-800 rounded-2xl shadow-2xl p-8 border-2 border-red-600">
                             <div className="text-center mb-8">
                                 <h1 className="text-5xl font-bold text-red-500 mb-2">APEX LEGENDS</h1>
-                                <h2 className="text-2xl text-slate-300">Abilities Quiz</h2>
+                                <h2 className="text-2xl text-slate-300">Kvíz schopností</h2>
                             </div>
                             
                             <div className="space-y-4">
@@ -381,7 +381,7 @@
                                     className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-6 px-8 rounded-xl flex items-center justify-between transition-all transform hover:scale-105"
                                 >
                                     <Target />
-                                    <span className="text-xl">Quick Mode (15 Questions)</span>
+                                    <span className="text-xl">Rychlý mód (15 otázek)</span>
                                     <div className="w-8" />
                                 </button>
                                 
@@ -390,18 +390,18 @@
                                     className="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-6 px-8 rounded-xl flex items-center justify-between transition-all transform hover:scale-105"
                                 >
                                     <Shuffle />
-                                    <span className="text-xl">Endless Mode</span>
+                                    <span className="text-xl">Nekonečný mód</span>
                                     <div className="w-8" />
                                 </button>
                             </div>
 
                             <div className="mt-8 text-center text-slate-400">
-                                <p>Test your knowledge of all legends and their abilities!</p>
+                                <p>Otestuj své znalosti všech postav a jejich schopností!</p>
                             </div>
 
                             {history.length > 0 && (
                                 <div className="mt-8">
-                                    <h3 className="text-xl font-bold text-white mb-4 text-center">Recent Results</h3>
+                                    <h3 className="text-xl font-bold text-white mb-4 text-center">Poslední výsledky</h3>
                                     <div className="space-y-2 max-h-80 overflow-y-auto">
                                         {history.map((entry, index) => (
                                             <div key={index} className="bg-slate-700 rounded-lg p-4 flex justify-between items-center">
@@ -433,16 +433,16 @@
                         <div className="max-w-2xl w-full bg-slate-800 rounded-2xl shadow-2xl p-8 border-2 border-red-600">
                             <div className="text-center mb-8">
                                 <Trophy />
-                                <h1 className="text-4xl font-bold text-red-500 mb-2">Game Over!</h1>
+                                <h1 className="text-4xl font-bold text-red-500 mb-2">Konec hry!</h1>
                                 <div className="text-white mb-4">
                                     <p className="text-3xl font-bold mb-2">
-                                        <span className="text-green-400">✓ {correctAnswers} Correct</span>
+                                        <span className="text-green-400">✓ {correctAnswers} správně</span>
                                     </p>
                                     <p className="text-3xl font-bold">
-                                        <span className="text-red-400">✗ {incorrectAnswers} Incorrect</span>
+                                        <span className="text-red-400">✗ {incorrectAnswers} špatně</span>
                                     </p>
                                 </div>
-                                <p className="text-2xl text-slate-300">{percentage}% accuracy</p>
+                                <p className="text-2xl text-slate-300">{percentage}% úspěšnost</p>
                             </div>
 
                             <div className="mb-8">
@@ -455,9 +455,9 @@
                             </div>
 
                             <div className="text-center mb-8">
-                                {percentage >= 80 && <p className="text-xl text-green-400">🏆 Excellent! You're an Apex Legends expert!</p>}
-                                {percentage >= 60 && percentage < 80 && <p className="text-xl text-yellow-400">👍 Good job! A few things to review.</p>}
-                                {percentage < 60 && <p className="text-xl text-orange-400">💪 Try again, you'll do better!</p>}
+                                {percentage >= 80 && <p className="text-xl text-green-400">🏆 Vynikající! Jsi expert na Apex Legends!</p>}
+                                {percentage >= 60 && percentage < 80 && <p className="text-xl text-yellow-400">👍 Dobrá práce! Pár věcí si ještě zopakuj.</p>}
+                                {percentage < 60 && <p className="text-xl text-orange-400">💪 Zkus to znovu, příště to bude lepší!</p>}
                             </div>
 
                             <button
@@ -465,7 +465,7 @@
                                 className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-3 transition-all transform hover:scale-105"
                             >
                                 <RotateCcw />
-                                <span className="text-xl">Play Again</span>
+                                <span className="text-xl">Hrát znovu</span>
                             </button>
                         </div>
                     </div>
@@ -484,8 +484,8 @@
                                     <span className="text-slate-500 mx-2">/</span>
                                     <span className="text-red-400">✗ {incorrectAnswers}</span>
                                 </div>
-                                {gameMode === 'quick' && <span className="text-slate-400">Question {questionsAnswered + 1}/15</span>}
-                                {gameMode === 'endless' && <span className="text-slate-400">Questions: {questionsAnswered}</span>}
+                                {gameMode === 'quick' && <span className="text-slate-400">Otázka {questionsAnswered + 1}/15</span>}
+                                {gameMode === 'endless' && <span className="text-slate-400">Otázky: {questionsAnswered}</span>}
                             </div>
                             <button
                                 onClick={resetGame}
@@ -522,7 +522,7 @@
 
                         {feedback && (
                             <div className={`text-center text-xl font-bold p-4 rounded-lg ${
-                                feedback.includes('Correct') ? 'bg-green-600/20 text-green-400' : 'bg-red-600/20 text-red-400'
+                                feedback.includes('Správně') ? 'bg-green-600/20 text-green-400' : 'bg-red-600/20 text-red-400'
                             }`}>
                                 {feedback}
                             </div>
