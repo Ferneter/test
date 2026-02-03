@@ -1,7 +1,7 @@
 const CACHE_NAME = 'apex-quiz-v1';
 const urlsToCache = [
   './',
-  './apex-quiz.html',
+  './index.html',
   './manifest.json'
 ];
 
