@@ -58,191 +58,193 @@
             </svg>
         );
 
-        const ApexLegendsQuiz = () => {
-            const legends = [
-                {
-                    name: "Bloodhound",
-                    tactical: "Reveals enemies, traps, and tracks through structures",
-                    passive: "Sees tracks left behind by enemies",
-                    ultimate: "Increases movement speed and highlights enemies",
-                    class: "Recon"
-                },
-                {
-                    name: "Gibraltar",
-                    tactical: "Creates a protective dome that blocks gunfire",
-                    passive: "Has a gun shield when aiming that absorbs damage",
-                    ultimate: "Calls in defensive bombardment missiles",
-                    class: "Support"
-                },
-                {
-                    name: "Lifeline",
-                    tactical: "Deploys a drone that heals nearby allies",
-                    passive: "Revives teammates with a drone and shield",
-                    ultimate: "Calls in a care package with equipment",
-                    class: "Support"
-                },
-                {
-                    name: "Pathfinder",
-                    tactical: "Fires a grappling hook to reach distant locations",
-                    passive: "Scans survey beacons to reveal the next ring location",
-                    ultimate: "Creates a zipline for team movement",
-                    class: "Skirmisher"
-                },
-                {
-                    name: "Wraith",
-                    tactical: "Enters the void where she's invisible and invulnerable",
-                    passive: "Hears voices warning of danger",
-                    ultimate: "Creates a portal connecting two locations",
-                    class: "Skirmisher"
-                },
-                {
-                    name: "Bangalore",
-                    tactical: "Fires a smoke canister",
-                    passive: "Runs faster when shot at or near gunfire",
-                    ultimate: "Calls in an artillery strike with delayed explosions",
-                    class: "Assault"
-                },
-                {
-                    name: "Caustic",
-                    tactical: "Places traps that release toxic gas",
-                    passive: "Sees enemies through his toxic gas",
-                    ultimate: "Throws a grenade releasing a large gas area",
-                    class: "Controller"
-                },
-                {
-                    name: "Mirage",
-                    tactical: "Sends out a decoy hologram",
-                    passive: "Becomes invisible when reviving or knocked down",
-                    ultimate: "Creates a group of holograms around himself",
-                    class: "Support"
-                },
-                {
-                    name: "Octane",
-                    tactical: "Sacrifices health for increased speed",
-                    passive: "Automatically regenerates health over time",
-                    ultimate: "Places a jump pad",
-                    class: "Skirmisher"
-                },
-                {
-                    name: "Wattson",
-                    tactical: "Places electric nodes that create fences",
-                    passive: "Shields recharge faster, ultimate charges from accelerants",
-                    ultimate: "Builds a pylon that destroys grenades and charges shields",
-                    class: "Controller"
-                },
-                {
-                    name: "Crypto",
-                    tactical: "Controls a surveillance drone",
-                    passive: "Drone detects enemies within range of the team",
-                    ultimate: "Drone releases an EMP damaging shields and devices",
-                    class: "Recon"
-                },
-                {
-                    name: "Revenant",
-                    tactical: "Throws a device that damages and disables abilities",
-                    passive: "Climbs walls and crouches faster",
-                    ultimate: "Places a totem that returns players after knockdown",
-                    class: "Skirmisher"
-                },
-                {
-                    name: "Loba",
-                    tactical: "Teleports by throwing her bracelet",
-                    passive: "Sees epic and legendary loot through walls",
-                    ultimate: "Places a device allowing loot collection from the area",
-                    class: "Support"
-                },
-                {
-                    name: "Rampart",
-                    tactical: "Builds a wall that amplifies outgoing shots and blocks incoming",
-                    passive: "Has larger magazine and faster reload with LMGs",
-                    ultimate: "Deploys and uses a mobile minigun Sheila",
-                    class: "Controller"
-                },
-                {
-                    name: "Horizon",
-                    tactical: "Creates a gravity lift that lifts players",
-                    passive: "Has better air control and landing impact",
-                    ultimate: "Creates a micro black hole that pulls in objects",
-                    class: "Skirmisher"
-                },
-                {
-                    name: "Fuse",
-                    tactical: "Fires an explosive cluster grenade",
-                    passive: "Throws grenades farther and faster, carries more grenades",
-                    ultimate: "Fires a ring of flames surrounding an area",
-                    class: "Assault"
-                },
-                {
-                    name: "Valkyrie",
-                    tactical: "Fires a swarm of missiles",
-                    passive: "Flies using a jetpack",
-                    ultimate: "Takes off with the team into the air for repositioning",
-                    class: "Skirmisher"
-                },
-                {
-                    name: "Seer",
-                    tactical: "Releases micro-drones that reveal, damage, and interrupt",
-                    passive: "Hears and sees the heartbeat of nearby enemies",
-                    ultimate: "Creates a sphere revealing moving enemies",
-                    class: "Recon"
-                },
-                {
-                    name: "Ash",
-                    tactical: "Throws a trap that tethers enemies",
-                    passive: "Sees death boxes and killer locations",
-                    ultimate: "Creates a one-way portal",
-                    class: "Assault"
-                },
-                {
-                    name: "Mad Maggie",
-                    tactical: "Fires a drill that burns through obstacles",
-                    passive: "Highlights enemies she shoots, moves faster with shotguns",
-                    ultimate: "Releases a wrecking ball offering temporary speed boost",
-                    class: "Assault"
-                },
-                {
-                    name: "Newcastle",
-                    tactical: "Throws a mobile shield that can be repositioned",
-                    passive: "Drags teammates while reviving and protects them with a shield",
-                    ultimate: "Leaps to a position creating fortified walls",
-                    class: "Support"
-                },
-                {
-                    name: "Vantage",
-                    tactical: "Commands Echo the bat to reposition",
-                    passive: "Aims at long range showing enemy information",
-                    ultimate: "Uses a custom sniper marking enemies for the team",
-                    class: "Recon"
-                },
-                {
-                    name: "Catalyst",
-                    tactical: "Throws ferrofluid creating a slowing and damaging area",
-                    passive: "Reinforces doors and can build new ones",
-                    ultimate: "Creates a ferrofluid wall blocking vision",
-                    class: "Controller"
-                },
-                {
-                    name: "Ballistic",
-                    tactical: "Programs a third weapon that fires smart bullets",
-                    passive: "Pulls out a sling, carries an extra weapon",
-                    ultimate: "Overclocks himself and the team with infinite ammo",
-                    class: "Assault"
-                },
-                {
-                    name: "Conduit",
-                    tactical: "Transfers shields to teammates",
-                    passive: "Runs faster toward teammates with low shields",
-                    ultimate: "Creates an energy shield that regenerates shields",
-                    class: "Support"
-                },
-                {
-                    name: "Alter",
-                    tactical: "Creates a void portal you can shoot through",
-                    passive: "Restores shields after using void portals",
-                    ultimate: "Creates a void nexus for team repositioning",
-                    class: "Skirmisher"
-                }
-            ];
+                const ApexLegendsQuiz = () => {
+          const legends = [
+            {
+              name: "Bloodhound",
+              tactical: "Krátce odhalí nepřátele, pasti a stopy v okolí",
+              passive: "Vidí stopy, které po sobě zanechali nepřátelé",
+              ultimate: "Zvýší rychlost pohybu a zvýrazní nepřátele",
+              class: "Průzkumník"
+            },
+            {
+              name: "Gibraltar",
+              tactical: "Vytvoří ochrannou kupoli blokující střely",
+              passive: "Při míření se aktivuje štít pohlcující poškození",
+              ultimate: "Přivolá obranné dělostřelecké bombardování",
+              class: "Podpora"
+            },
+            {
+              name: "Lifeline",
+              tactical: "Nasadí dron, který léčí spojence v okolí",
+              passive: "Oživuje spojence pomocí dronu s ochranným štítem",
+              ultimate: "Přivolá care package s kvalitním vybavením",
+              class: "Podpora"
+            },
+            {
+              name: "Pathfinder",
+              tactical: "Vystřelí hák a přitáhne se na vzdálené místo",
+              passive: "Skenuje průzkumné majáky a odhalí další kruh",
+              ultimate: "Vytvoří zipline pro týmový přesun",
+              class: "Plížitel"
+            },
+            {
+              name: "Wraith",
+              tactical: "Vstoupí do voidu, kde je krátce neviditelná a nezranitelná",
+              passive: "Hlasy ji varují před blížícím se nebezpečím",
+              ultimate: "Vytvoří portál mezi dvěma místy",
+              class: "Plížitel"
+            },
+            {
+              name: "Bangalore",
+              tactical: "Vystřelí kouřové granáty zakrývající výhled",
+              passive: "Po zásahu nebo palbě v okolí se krátce zrychlí",
+              ultimate: "Přivolá dělostřelecký útok s opožděnými výbuchy",
+              class: "Útočník"
+            },
+            {
+              name: "Caustic",
+              tactical: "Umístí pasti, které po aktivaci vypustí toxický plyn",
+              passive: "Vidí nepřátele skrz svůj plyn",
+              ultimate: "Hodí granát, který zaplní oblast plynem",
+              class: "Ovladač"
+            },
+            {
+              name: "Mirage",
+              tactical: "Vysílá holografickou návnadu",
+              passive: "Stává se neviditelným při oživování nebo knockdownu",
+              ultimate: "Vytvoří skupinu hologramů kolem sebe",
+              class: "Podpora"
+            },
+            {
+              name: "Octane",
+              tactical: "Obětuje zdraví pro výrazné zrychlení",
+              passive: "Postupně regeneruje zdraví",
+              ultimate: "Umístí odrazovou plošinu",
+              class: "Plížitel"
+            },
+            {
+              name: "Wattson",
+              tactical: "Umístí elektrické uzly vytvářející obranné ploty",
+              passive: "Akceleranty rychle dobíjejí ultimát",
+              ultimate: "Postaví pylón ničíci granáty a dobíjející štíty",
+              class: "Ovladač"
+            },
+            {
+              name: "Crypto",
+              tactical: "Ovládá průzkumný dron",
+              passive: "Nepřátelé detekovaní dronem jsou označeni pro tým",
+              ultimate: "Dron spustí EMP poškozující štíty a zařízení",
+              class: "Průzkumník"
+            },
+            {
+              name: "Revenant",
+              tactical: "Hodí zařízení, které umlčí schopnosti a poškozuje",
+              passive: "Rychle leze po stěnách a pohybuje se při skrčení",
+              ultimate: "Vytvoří totem návratu po knockdownu",
+              class: "Plížitel"
+            },
+            {
+              name: "Loba",
+              tactical: "Teleportuje se pomocí náramku",
+              passive: "Vidí epické a legendární předměty skrz stěny",
+              ultimate: "Umístí Black Market pro sběr lootu v okolí",
+              class: "Podpora"
+            },
+            {
+              name: "Rampart",
+              tactical: "Postaví kryt zesilující střelbu a blokující útoky",
+              passive: "Větší zásobníky a rychlejší reload LMG",
+              ultimate: "Nasadí nebo nese minigun Sheila",
+              class: "Ovladač"
+            },
+            {
+              name: "Horizon",
+              tactical: "Vytvoří gravitační výtah",
+              passive: "Má lepší kontrolu pohybu ve vzduchu",
+              ultimate: "Vytvoří malou černou díru přitahující objekty",
+              class: "Plížitel"
+            },
+            {
+              name: "Fuse",
+              tactical: "Vystřelí cluster granát s opakovanými explozemi",
+              passive: "Nese více granátů a hází je dál a rychleji",
+              ultimate: "Vytvoří ohnivý kruh obklopující oblast",
+              class: "Útočník"
+            },
+            {
+              name: "Valkyrie",
+              tactical: "Vystřelí roj raket",
+              passive: "Používá jetpack pro vertikální pohyb",
+              ultimate: "Vezme tým do vzduchu k přesunu",
+              class: "Plížitel"
+            },
+            {
+              name: "Seer",
+              tactical: "Mikrodrony odhalí a přeruší nepřátele",
+              passive: "Slyší a vidí tlukot srdce nepřátel při míření",
+              ultimate: "Vytvoří kouli odhalující pohyb nepřátel",
+              class: "Průzkumník"
+            },
+            {
+              name: "Ash",
+              tactical: "Vržená past přitáhne a zraní nepřítele",
+              passive: "Vidí deathboxy a místa posledních zabití",
+              ultimate: "Vytvoří jednosměrný portál",
+              class: "Útočník"
+            },
+            {
+              name: "Mad Maggie",
+              tactical: "Vystřelí vrták propalující překážky",
+              passive: "Zvýrazňuje zasažené nepřátele, rychlejší pohyb se shotguny",
+              ultimate: "Vypustí wrecking ball poskytující rychlost",
+              class: "Útočník"
+            },
+            {
+              name: "Newcastle",
+              tactical: "Hodí pohyblivý ochranný štít",
+              passive: "Táhne spojence při oživování a chrání je",
+              ultimate: "Skočí na pozici a vytvoří opevněnou zeď",
+              class: "Podpora"
+            },
+            {
+              name: "Vantage",
+              tactical: "Přesune se k netopýrovi Echovi",
+              passive: "Při zamíření vidí informace o vzdálených nepřátelích",
+              ultimate: "Použije sniperku označující cíle pro tým",
+              class: "Průzkumník"
+            },
+            {
+              name: "Catalyst",
+              tactical: "Rozmístí ferrofluidové bodce zpomalující nepřátele",
+              passive: "Zpevňuje dveře a může vytvářet nové",
+              ultimate: "Vytvoří temnou stěnu blokující výhled",
+              class: "Ovladač"
+            },
+            {
+              name: "Ballistic",
+              tactical: "Vystřelí chytrý projektil přehřívající zbraň nepřítele",
+              passive: "Nese třetí zbraň ve speciálním slotu",
+              ultimate: "Posílí tým rychlostí, reloadem a nekonečnou municí",
+              class: "Útočník"
+            },
+            {
+              name: "Conduit",
+              tactical: "Přenese dočasné štíty spojenci",
+              passive: "Běží rychleji k spojencům s nízkými štíty",
+              ultimate: "Rozmístí energetické generátory štítů",
+              class: "Podpora"
+            },
+            {
+              name: "Alter",
+              tactical: "Vytvoří portál skrz povrchy",
+              passive: "Může brát předměty z deathboxů skrz zdi",
+              ultimate: "Umístí Void Nexus pro týmový návrat",
+              class: "Plížitel"
+            }
+          ];
+        };
+
 
             const [gameMode, setGameMode] = useState('menu');
             const [currentQuestion, setCurrentQuestion] = useState(null);
