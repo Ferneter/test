@@ -314,26 +314,39 @@
                 setSelectedAnswer(null);
             };
 
-            const handleAnswer = (answer) => {
-                setSelectedAnswer(answer);
-                if (answer === currentQuestion.correctAnswer) {
-                    setCorrectAnswers(correctAnswers + 1);
-                    setFeedback('✓ Správně!');
-                } else {
-                    setIncorrectAnswers(incorrectAnswers + 1);
-                    setFeedback(`✗ Špatně! Správná odpověď: ${currentQuestion.correctAnswer}`);
-                }
-                setQuestionsAnswered(questionsAnswered + 1);
-
+           const handleAnswer = (answer) => {
+            if (selectedAnswer) return;
+        
+            const isCorrect = answer === currentQuestion.correctAnswer;
+        
+            setSelectedAnswer(answer);
+            setFeedback(
+                isCorrect
+                    ? '✓ Správně!'
+                    : `✗ Špatně! Správná odpověď: ${currentQuestion.correctAnswer}`
+            );
+        
+            setCorrectAnswers(prev => prev + (isCorrect ? 1 : 0));
+            setIncorrectAnswers(prev => prev + (isCorrect ? 0 : 1));
+            setQuestionsAnswered(prev => {
+                const newCount = prev + 1;
+        
                 setTimeout(() => {
-                    if (questionsAnswered + 1 >= 15 && gameMode === 'quick') {
-                        saveToHistory(correctAnswers + (answer === currentQuestion.correctAnswer ? 1 : 0), incorrectAnswers + (answer === currentQuestion.correctAnswer ? 0 : 1));
+                    if (gameMode === 'quick' && newCount >= 15) {
+                        const finalCorrect = correctAnswers + (isCorrect ? 1 : 0);
+                        const finalIncorrect = incorrectAnswers + (isCorrect ? 0 : 1);
+        
+                        saveToHistory(finalCorrect, finalIncorrect);
                         setGameMode('results');
                     } else {
                         generateQuestion();
                     }
                 }, 2000);
-            };
+        
+                return newCount;
+            });
+        };
+
 
             const saveToHistory = (correct, incorrect) => {
                 const newEntry = {
