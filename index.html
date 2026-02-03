@@ -258,31 +258,51 @@
             const [questionsAnswered, setQuestionsAnswered] = useState(0);
             const [feedback, setFeedback] = useState('');
             const [selectedAnswer, setSelectedAnswer] = useState(null);
-            const [usedLegends, setUsedLegends] = useState([]);
+            const [usedQuestions, setUsedQuestions] = useState([]);
             const [history, setHistory] = useState(() => {
                 const saved = localStorage.getItem('apexQuizHistory');
                 return saved ? JSON.parse(saved) : [];
             });
 
             const generateQuestion = () => {
-                const availableLegends = legends.filter(l => !usedLegends.includes(l.name));
+                // Vytvoř všechny možné kombinace otázek
+                const allPossibleQuestions = [];
+                legends.forEach(legend => {
+                    ['tactical', 'passive', 'ultimate'].forEach(abilityType => {
+                        allPossibleQuestions.push({
+                            legendName: legend.name,
+                            questionType: abilityType,
+                            key: `${legend.name}-${abilityType}`
+                        });
+                        // Přidat i "name" typ otázky pro každou abilitu
+                        allPossibleQuestions.push({
+                            legendName: legend.name,
+                            questionType: 'name',
+                            abilityType: abilityType,
+                            key: `${legend.name}-name-${abilityType}`
+                        });
+                    });
+                });
+
+                // Filtruj již použité otázky
+                const availableQuestions = allPossibleQuestions.filter(q => !usedQuestions.includes(q.key));
                 
-                if (availableLegends.length === 0) {
-                    setUsedLegends([]);
+                // Pokud došly všechny otázky, resetuj
+                if (availableQuestions.length === 0) {
+                    setUsedQuestions([]);
                     return generateQuestion();
                 }
 
-                const legend = availableLegends[Math.floor(Math.random() * availableLegends.length)];
-                const questionTypes = ['tactical', 'passive', 'ultimate', 'name'];
-                const questionType = questionTypes[Math.floor(Math.random() * questionTypes.length)];
+                // Vyber náhodnou otázku z dostupných
+                const selectedQuestion = availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
+                const legend = legends.find(l => l.name === selectedQuestion.legendName);
                 
                 let question = '';
                 let correctAnswer = '';
                 let answers = [];
 
-                if (questionType === 'name') {
-                    const abilityTypes = ['tactical', 'passive', 'ultimate'];
-                    const abilityType = abilityTypes[Math.floor(Math.random() * abilityTypes.length)];
+                if (selectedQuestion.questionType === 'name') {
+                    const abilityType = selectedQuestion.abilityType;
                     const abilityName = legend[abilityType];
                     
                     question = `Která postava má tuto ${abilityType === 'tactical' ? 'taktickou' : abilityType === 'passive' ? 'pasivní' : 'ultimátní'} schopnost: "${abilityName}"?`;
@@ -298,6 +318,7 @@
                     }
                     answers = [correctAnswer, ...wrongAnswers].sort(() => Math.random() - 0.5);
                 } else {
+                    const questionType = selectedQuestion.questionType;
                     question = `Jaká je ${questionType === 'tactical' ? 'taktická' : questionType === 'passive' ? 'pasivní' : 'ultimátní'} schopnost postavy ${legend.name}?`;
                     correctAnswer = legend[questionType];
                     
@@ -316,7 +337,7 @@
                 }
 
                 setCurrentQuestion({ question, correctAnswer, answers, legend: legend.name });
-                setUsedLegends([...usedLegends, legend.name]);
+                setUsedQuestions([...usedQuestions, selectedQuestion.key]);
                 setFeedback('');
                 setSelectedAnswer(null);
             };
@@ -373,7 +394,7 @@
                 setCorrectAnswers(0);
                 setIncorrectAnswers(0);
                 setQuestionsAnswered(0);
-                setUsedLegends([]);
+                setUsedQuestions([]);
                 generateQuestion();
             };
 
@@ -382,7 +403,7 @@
                 setCorrectAnswers(0);
                 setIncorrectAnswers(0);
                 setQuestionsAnswered(0);
-                setUsedLegends([]);
+                setUsedQuestions([]);
                 setCurrentQuestion(null);
             };
 
