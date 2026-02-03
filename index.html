@@ -21,15 +21,14 @@ const ApexLegendsQuiz = () => {
             <h1>Apex Legends Quiz</h1>
             {isQuizComplete ? (
                 <div>
-                    <h2>Your score: {score}</h2>
-                    <button onClick={() => setIsQuizComplete(false)}>Retry</button>
+                    <button onClick={() => setIsQuizComplete(false)}>Znovu</button>
                 </div>
             ) : (
                 <div>
                     <h2>Question {questionIndex + 1}</h2>
                     {/* here you would map over and display the question */}
-                    <button onClick={handleCorrectAnswer}>Answer</button>
-                    <button onClick={handleQuizComplete}>Finish Quiz</button>
+                    <button onClick={handleCorrectAnswer}>Odpovědět</button>
+                    <button onClick={handleQuizComplete}>Dokončit kvíz</button>
                 </div>
             )}
         </div>
